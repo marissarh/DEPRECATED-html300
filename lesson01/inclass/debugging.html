@@ -6,17 +6,38 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script type="text/javascript">
-    myArray = [13,25,10,43,435];
-    for(let i = 0; index < myArray.length -1; index++){
+     myArray = [13,25,10,43,435];
+
+    // index not defined 
+    
+    for(let index = 0; index < myArray.length -1; index++){
       console.log(myArray[index]);
     }
+    
+    // use .forEach
+    myArray.forEach(function(value, key){
+      console.log(value);
+      console.log(key);
+    });
+
+
 
     for(let index = 0; index < myArray.length -1; index++){
       myArray[index] = myArray[index] + 15;
     }
     console.log(myArray + 'Each number should 15 greater than before the loop');
+    
+    // use .map
+    let array2 = myArray.map(function(value){
+      return value + 15
+    });
+    /*for(let i = 0; i < myArray.length -1; i++){
+      array2.push(myArray[i]+15);
+    }*/
+    console.log(array2);
 
-    var isAbove30 = true;
+
+    let isAbove30 = true;
     for(let index = 0; index < myArray.length; index++){
       if(myArray[index] < 30){
         isAbove30 = false;
@@ -24,25 +45,47 @@
     }
     console.log("Every number is above 30 is " + isAbove30);
 
+    // use .every
+    let array3 = myArray.every(function(value){
+      return value >30;
+    });
+    console.log("Every number is above 30 is " + array3);
+    
+    
     console.log("Creating an array for every number above 50");
+    
+    
     above50 = [];
     for(let index = 0; index < myArray.length; index++){
       if(myArray[index] > 50){
-        iabove50.push(myArray[index])
+        above50.push(myArray[index]);
       }
-    }
+    } 
+    
+    //use .filter
+    above50 = myArray.filter(function(value){
+      return value > 50;
+    });
     console.log("Here is the array for every number above 50 " + above50);
 
+
+    
     myArray2 = [13,25,10,43,435];
     let sum = 0;
     for(let index = 0; index < myArray.length + 1; index++){
       sum = sum + myArray[index];
     }
-
     console.log("The total value of the array is " + sum);
+
+    // use .reduce
+    sum2 = myArray.reduce(function(sum, value){
+      return sum + value;
+    });
+    console.log("The total value of the array is " + sum2);
+    
   </script>
 </head>
-<body>
+      <body>
 
 </body>
-</html>
+</html> 
